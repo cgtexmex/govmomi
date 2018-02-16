@@ -122,7 +122,7 @@ func (cmd *power) Run(ctx context.Context, f *flag.FlagSet) error {
 			return derr
 		}
 
-		task, derr := dc.PowerOnVM(ctx, vmReferences(vms))
+		task, derr := dc.PowerOnVM(ctx, vmReferences(vms), &types.OptionValue{Key: string(types.ClusterPowerOnVmOptionOverrideAutomationLevel), Value: types.DrsBehaviorFullyAutomated})
 		if derr != nil {
 			return derr
 		}
